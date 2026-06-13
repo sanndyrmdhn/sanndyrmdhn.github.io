@@ -1210,7 +1210,67 @@ p:last-child{ margin-bottom: 0; }
   .permission-table td[data-label="Keterangan"]{ text-align: left; }
   .permission-table td:empty::after{ content: '—'; opacity: 0.3; }
 
-  .code-block pre{ font-size: 0.72rem; }
+  .code-block pre{ font-size: 0.72rem; white-space: pre-wrap; word-break: break-word; }
   .progress-mock{ font-size: 0.78rem; }
   .compare-grid{ grid-template-columns: 1fr; }
+
+  /* Hero */
+  .hero{ padding: 40px 0 64px; }
+  .hero-actions .btn{ width: 100%; justify-content: center; text-align: center; }
+  .hero-meta{ flex-wrap: wrap; gap: 20px; }
+
+  /* Section head numbers shouldn't overflow */
+  .section-head .num{ -webkit-text-stroke: 1.5px var(--ink); }
+
+  /* Pinout grid: 8 cols too tight on phones */
+  .pinout-grid{ grid-template-columns: repeat(4,1fr); gap: 6px; }
+  .pin{ padding: 8px 4px; font-size: 0.62rem; }
+  .pinout-card{ padding: 20px; }
+  .pinout-list{ grid-template-columns: repeat(2,1fr); }
+
+  /* Download cards / mock windows */
+  .download-card{ padding: 16px; }
+  .mock-window{ font-size: 0.7rem; }
+  .mock-body{ padding: 12px; font-size: 0.72rem; }
+  .mock-row{ flex-direction: column; gap: 8px; }
+  .mock-body table{ display: block; overflow-x: auto; white-space: nowrap; }
+  .mock-body table tr{ display: table-row; }
+  .btn-download{ flex-direction: column; align-items: flex-start; gap: 10px; }
+  .btn-download-compact{ flex-direction: row; align-items: center; }
+
+  /* Timeline steps */
+  .step{ grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .step-marker{ padding-top: 0; opacity: 0.5; }
+
+  /* Goal grid */
+  .goal-grid{ gap: 10px; margin-bottom: 40px; }
+
+  /* Process / mug photos */
+  .process-photo img{ aspect-ratio: 4/3; }
+  .mug-step{ gap: 16px; }
+  .mug-photo img{ aspect-ratio: 16/10; }
+
+  /* Flow grid cards */
+  .flow-card{ padding: 16px; }
+
+  /* Tool chips */
+  .tools-list{ gap: 8px; }
+  .tool-chip{ font-size: 0.85rem; padding: 8px 14px 8px 8px; }
+
+  /* Song card */
+  .song-card{ padding: 20px; font-size: 0.9rem; }
+
+  /* Closing card */
+  .closing-card{ padding: 20px; }
+
+  /* Prevent horizontal overflow */
+  table, .code-block, .mock-window{ max-width: 100%; }
+  .download-sub, .link-cell{ word-break: break-word; }
+}
+
+@media (max-width: 420px){
+  .hero h1{ font-size: clamp(2.1rem, 9vw, 2.6rem); }
+  .section-head .num{ font-size: 2.4rem; }
+  .goal-grid{ grid-template-columns: 1fr; }
+  .pinout-grid{ grid-template-columns: repeat(2,1fr); }
 }
