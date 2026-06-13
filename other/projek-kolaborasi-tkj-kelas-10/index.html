@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laporan Praktikum TKJ — Sandi Tri Ramadhan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Background grid / circuit texture -->
+<div class="bg-grid" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">TKJ</span>
+      <span class="brand-sub">Lab Report // Genap 25-26</span>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="#perkenalan"><span class="tag">01</span> Perkenalan</a>
+      <a href="#windows"><span class="tag">02</span> Instalasi OS</a>
+      <a href="#crimping"><span class="tag">03</span> Crimping UTP</a>
+      <a href="#share"><span class="tag">04</span> Share Folder</a>
+      <a href="#mug"><span class="tag">05</span> Cetak MUG</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Buka menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Proyek Kolaborasi · Semester Genap 2025/2026 · Juni 2026</p>
+        <h1>Empat praktik,<br>satu jaringan<br><span class="accent">yang menyala.</span></h1>
+        <p class="hero-desc">
+          Dokumentasi praktikum Teknik Komputer dan Jaringan: memasang sistem operasi dari nol,
+          menyambung kabel UTP sampai LED LAN tester berkedip semua, membuka pintu folder lewat
+          alamat IP, dan menutup hari dengan mug bermotif hasil sendiri.
+        </p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <span class="meta-label">Disusun oleh</span>
+            <span class="meta-value">Sandi Tri Ramadhan</span>
+          </div>
+          <div class="meta-item">
+            <span class="meta-label">Kelas / NIPD</span>
+            <span class="meta-value">X TKJ AKA · 145251426042</span>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a href="#windows" class="btn btn-primary">Mulai dari Praktik 02 →</a>
+          <a href="#tujuan" class="btn btn-ghost">Lihat tujuan proyek</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="photo-frame">
+          <img src="assets/profile.png" alt="Foto Sandi Tri Ramadhan mengenakan seragam sekolah">
+        </div>
+        <div class="status-card">
+          <div class="status-row"><span class="dot dot-green"></span> OS terpasang</div>
+          <div class="status-row"><span class="dot dot-green"></span> Link 1–8 aktif</div>
+          <div class="status-row"><span class="dot dot-green"></span> Share folder online</div>
+          <div class="status-row"><span class="dot dot-amber"></span> Mug — heating…</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 01 PERKENALAN -->
+  <section class="section" id="perkenalan">
+    <div class="section-inner two-col">
+      <div class="col-label">
+        <span class="num">01</span>
+        <h2>Perkenalan<br>Diri</h2>
+      </div>
+      <div class="col-content">
+        <p class="lead">
+          Hai, saya <strong>Sandi Tri Ramadhan</strong> — siswa kelas 10 jurusan Teknik Komputer
+          dan Jaringan yang senang menjajal hal baru di dunia teknologi.
+        </p>
+        <p>
+          Pada proyek ini saya mengerjakan setiap bagian secara mandiri, dengan fokus pada
+          pemahaman konsep sekaligus penerapannya secara langsung. Selama proses ini saya
+          belajar banyak hal tentang kemandirian, disiplin, dan cara menghadapi berbagai
+          tantangan teknis di lapangan.
+        </p>
+        <p>
+          Meski belum selalu berjalan mulus, saya berusaha memberikan hasil terbaik dan tidak
+          berhenti di tengah jalan. Semoga proyek ini menjadi titik awal yang baik dan bekal
+          pengalaman untuk masa depan saya.
+        </p>
+        <div id="tujuan" class="objective-card">
+          <h3>Tujuan Proyek</h3>
+          <p>
+            Membekali siswa TKJ dengan keterampilan teknis langsung melalui empat praktik utama:
+            instalasi Windows 10 LTSC dari media bootable hingga konfigurasi driver, crimping
+            kabel UTP standar T568B tipe straight beserta pengujiannya, konfigurasi share
+            folder antar perangkat lengkap dengan hak akses pengguna, serta proses desain dan
+            cetak mug menggunakan heat press machine — sambil membentuk karakter yang disiplin,
+            bertanggung jawab, dan tidak mudah menyerah.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 INSTALASI WINDOWS -->
+  <section class="section section-alt" id="windows">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="num">02</span>
+        <div>
+          <p class="eyebrow">Praktik Pertama</p>
+          <h2>Instalasi Windows 10 LTSC</h2>
+          <p class="section-desc">
+            Sistem operasi adalah perangkat lunak paling dasar yang wajib ada di setiap
+            komputer. Tanpa OS, perangkat keras tidak bisa berfungsi optimal dan pengguna
+            tidak bisa menjalankan aplikasi apa pun. Praktik ini memilih
+            <strong>Windows 10 IoT Enterprise LTSC</strong> karena edisinya lebih ringan,
+            stabil, dan mendapat dukungan keamanan jangka panjang — cocok untuk lab dan
+            kebutuhan belajar.
+          </p>
+        </div>
+      </div>
+
+      <!-- goals -->
+      <div class="goal-grid">
+        <div class="goal-card">
+          <span class="goal-icon">💽</span>
+          <p>Menyiapkan media instalasi <em>bootable</em> dengan Ventoy</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🗂️</span>
+          <p>Melakukan partisi &amp; konfigurasi awal Windows 10 LTSC</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">⚙️</span>
+          <p>Menginstal driver perangkat lewat Device Manager</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🔁</span>
+          <p>Memahami perbedaan tipe instalasi Upgrade vs Custom</p>
+        </div>
+      </div>
+
+      <!-- Download cards -->
+      <div class="download-zone">
+        <p class="download-label">Bahan unduhan untuk praktik ini</p>
+        <div class="download-grid">
+
+          <div class="download-card">
+            <div class="download-card-top">
+              <div class="download-icon iso-icon">ISO</div>
+              <div>
+                <h4>Windows 10 IoT Enterprise LTSC 2021</h4>
+                <p class="download-sub">Build 19044.1288 · x64 · en-US · ~4.2 GB</p>
+              </div>
+            </div>
+            <div class="mock-window">
+              <div class="mock-titlebar"><span></span><span></span><span></span></div>
+              <div class="mock-body mono">
+                <p>Windows 10 IoT Enterprise LTSC 2021</p>
+                <p class="muted">(Build - 19044.1288)</p>
+                <p class="muted">These ISOs contain below editions.</p>
+                <p>· Windows 10 Enterprise LTSC</p>
+                <p>· Windows 10 IoT Enterprise LTSC</p>
+                <table>
+                  <tr><th>Language</th><th>Arch</th><th>Link</th></tr>
+                  <tr><td>English</td><td>x64</td><td class="link-cell">en-us_windows_10_iot…ltsc_2021_x64_dvd.iso</td></tr>
+                </table>
+              </div>
+            </div>
+            <a class="btn btn-download" href="https://massgrave.dev/windows_ltsc_links" target="_blank" rel="noopener">
+              <span class="btn-download-icon">⬇</span>
+              <span>
+                <strong>Download ISO Windows 10 LTSC</strong>
+                <small>via massgrave.dev — Genuine Installation Media</small>
+              </span>
+            </a>
+          </div>
+
+          <div class="download-card">
+            <div class="download-card-top">
+              <div class="download-icon ventoy-icon">V2D</div>
+              <div>
+                <h4>Ventoy2Disk</h4>
+                <p class="download-sub">Flashdisk bootable, minimal 8 GB · exFAT/GPT</p>
+              </div>
+            </div>
+            <div class="mock-window">
+              <div class="mock-titlebar"><span></span><span></span><span></span></div>
+              <div class="mock-body mono">
+                <p class="mock-app-title">Ventoy2Disk X86</p>
+                <div class="mock-field">
+                  <span class="muted">Device</span>
+                  <span>E: F: [64GB] SanDisk Cruzer Blade</span>
+                </div>
+                <div class="mock-row">
+                  <div class="mock-box">
+                    <span class="muted">Ventoy In Package</span>
+                    <strong>1.1.12</strong> <span class="muted">exFAT / GPT</span>
+                  </div>
+                  <div class="mock-box">
+                    <span class="muted">Ventoy In Device</span>
+                    <strong>1.1.10</strong> <span class="muted">exFAT / GPT</span>
+                  </div>
+                </div>
+                <p class="muted">Status — READY</p>
+                <div class="mock-buttons">
+                  <span class="mock-btn primary">Install</span>
+                  <span class="mock-btn">Update</span>
+                </div>
+              </div>
+            </div>
+            <a class="btn btn-download" href="https://www.ventoy.net/en/download.html" target="_blank" rel="noopener">
+              <span class="btn-download-icon">⬇</span>
+              <span>
+                <strong>Download Ventoy</strong>
+                <small>via ventoy.net — bikin flashdisk bootable multi-ISO</small>
+              </span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Step timeline -->
+      <div class="timeline">
+
+        <div class="step">
+          <div class="step-marker">02.1</div>
+          <div class="step-body">
+            <h3>Download ISO &amp; Flash Device Bootable</h3>
+            <p>
+              Unduh ISO Windows 10 LTSC dari massgrave.dev, lalu flash flashdisk minimal 8GB
+              menggunakan Ventoy. Pindahkan file ISO ke flashdisk untuk melanjutkan instalasi —
+              Ventoy mendukung banyak ISO sekaligus tanpa perlu ditulis ulang setiap kali ganti.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.2</div>
+          <div class="step-body">
+            <h3>Pilih Device Bootable di Boot Manager</h3>
+            <p>
+              Setelah ISO dipindahkan, masuk ke Boot Manager dan pilih nama device flashdisk.
+              Cara masuk Boot Manager bervariasi tergantung merek motherboard PC atau laptop
+              (umumnya tombol F2 / F11 / F12 / Del saat menyala).
+            </p>
+            <div class="code-block mono">
+              <div class="code-title">Boot Manager Menu</div>
+              <pre>Windows Boot Manager
+UEFI VBOX CD-ROM VB1-1a2b3c4d
+UEFI VBOX HARDDISK VBa91cee7f-9b4b37b4
+<span class="hl">UEFI SanDisk Cruzer Blade 00010221042925104758</span>
+UEFI PXEv4 (MAC:0800270796E2)
+UEFI PXEv6 (MAC:0800270796E2)</pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.3</div>
+          <div class="step-body">
+            <h3>Bahasa, Waktu, &amp; Aktivasi Windows</h3>
+            <p>
+              Pilih bahasa dan format waktu sesuai kebutuhan, lalu klik <strong>Install now</strong>.
+              Opsi <em>Repair your computer</em> digunakan untuk memperbaiki Windows yang sudah
+              terpasang. Untuk aktivasi, masukkan product key jika punya lisensi — jika tidak,
+              pilih <strong>I don't have a product key</strong> dan lanjutkan; Windows akan
+              teraktivasi otomatis nanti.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.4</div>
+          <div class="step-body">
+            <h3>Edisi Windows, Lisensi, &amp; Tipe Instalasi</h3>
+            <p>
+              Pilih edisi yang diinginkan — di praktik ini dipilih
+              <strong>Windows 10 IoT Enterprise LTSC</strong>. Setujui syarat &amp; ketentuan
+              dari Microsoft (centang <em>I accept the license terms</em>), lalu tentukan tipe
+              instalasi:
+            </p>
+            <div class="compare-grid">
+              <div class="compare-card">
+                <span class="compare-tag">Upgrade</span>
+                <p>Menaikkan versi Windows dari versi sebelum Windows 10, sambil mempertahankan
+                file, setelan, dan aplikasi.</p>
+              </div>
+              <div class="compare-card compare-active">
+                <span class="compare-tag">Custom</span>
+                <p>Memilih partisi kosong untuk instalasi bersih — dipakai di praktik ini.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.5</div>
+          <div class="step-body">
+            <h3>Partisi &amp; Proses Instalasi</h3>
+            <p>
+              Klik <strong>New</strong>, lalu masukkan kapasitas partisi dalam satuan MB
+              (di praktik ini dialokasikan <span class="mono-inline">25600 MB</span>). Klik
+              <strong>Next</strong> untuk memulai proses instalasi — tunggu hingga selesai,
+              ditandai dengan komputer melakukan restart otomatis.
+            </p>
+            <div class="progress-mock mono">
+              <p class="muted">Installing Windows</p>
+              <p>✔ Copying Windows files</p>
+              <p class="hl">Getting files ready for installation (12%)</p>
+              <div class="progress-bar"><div class="progress-fill"></div></div>
+              <p class="muted">Installing features · Installing updates · Finishing up</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.6</div>
+          <div class="step-body">
+            <h3>Konfigurasi Awal: Negara &amp; Keyboard</h3>
+            <p>
+              Setelah restart, pilih negara (mis. <em>Indonesia</em>), lalu tentukan tata letak
+              keyboard yang sesuai. Jika tidak perlu menambahkan tata letak kedua, klik
+              <strong>Skip</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.7</div>
+          <div class="step-body">
+            <h3>Koneksi, Akun, &amp; Password</h3>
+            <p>
+              Hubungkan ke internet bila tersedia, atau pilih <strong>I don't have internet</strong>
+              untuk lanjut. Jika punya akun Microsoft, login langsung — jika tidak, pilih
+              <strong>Continue with limited setup</strong>. Isi username sesuai keinginan, dan
+              password bersifat opsional (boleh dikosongkan, klik Next).
+            </p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.8</div>
+          <div class="step-body">
+            <h3>Partisi, &amp; Driver</h3>
+            <p>
+              Atur preferensi layanan privasi sesuai kebutuhan, lalu klik <strong>Accept</strong>.
+              Untuk mengecek partisi dan driver, tekan <span class="mono-inline">Windows + X</span>:
+            </p>
+            <ul class="check-list">
+              <li><strong>Disk Management</strong> — klik kanan partisi kosong (warna hitam) → New Simple Volume → isi Volume label di kolom yang tersedia → Next → Finish.</li>
+              <li><strong>Device Manager</strong> — periksa driver yang belum terpasang, ditandai ikon seru kuning.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="step-marker">02.9</div>
+          <div class="step-body">
+            <h3>Download &amp; Driver</h3>
+            <p>
+              Untuk Mendownload Driver bisa lewat Website Resmi Brand Motherboard atau Brand Laptop
+            </p>
+            <ul class="check-list">
+              <li><strong>Mencari Driver Yang Dibutuhkan</strong> — Seperti Driver GPU, Audio, Dan Lain Lain</li>
+              <li><strong>Lalu Install</strong> — Setelah dipasang bisa periksa driver yang sudah terpasang</li>
+            </ul>
+            <div class="mock-window small">
+              <div class="mock-titlebar"><span></span><span></span><span></span></div>
+              <img src="assets/diskmgmt.png" alt="Tampilan Disk Management menunjukkan daftar partisi dan New Simple Volume" class="mock-screenshot">
+            </div>
+          </div>
+        </div>
+
+        <div class="step step-final">
+          <div class="step-marker">02.10</div>
+          <div class="step-body">
+            <h3>Install Driver &amp; Windows Siap Digunakan</h3>
+            <p>
+              Unduh driver dari situs resmi sesuai merek motherboard atau laptop, lalu instal
+              sesuai instruksi. Cek kembali di Device Manager untuk memastikan semua perangkat
+              sudah terdeteksi tanpa tanda seru. Setelah itu, Windows siap digunakan — tinggal
+              instal software dan lakukan konfigurasi sesuai kebutuhan.
+            </p>
+            <div class="result-banner">
+              <span class="dot dot-green"></span>
+              Windows 10 IoT Enterprise LTSC — terpasang &amp; siap pakai
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 CRIMPING UTP -->
+  <section class="section" id="crimping">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="num">03</span>
+        <div>
+          <p class="eyebrow">Praktik Kedua</p>
+          <h2>Crimping Kabel UTP — T568B Straight</h2>
+          <p class="section-desc">
+            Kabel UTP (<em>Unshielded Twisted Pair</em>) adalah media transmisi paling umum di
+            jaringan LAN karena murah, mudah dipasang, dan tersedia luas. Agar bisa digunakan,
+            ujung kabel dipasangi konektor RJ-45 melalui proses <strong>crimping</strong>.
+            Penguasaan teknik ini penting karena merupakan pekerjaan rutin saat membangun atau
+            memperbaiki infrastruktur jaringan.
+          </p>
+        </div>
+      </div>
+
+      <div class="goal-grid">
+        <div class="goal-card">
+          <span class="goal-icon">🎨</span>
+          <p>Mengupas &amp; mengurutkan kabel sesuai standar warna T568B</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🔌</span>
+          <p>Memasang konektor RJ-45 dengan tang crimping yang benar</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🧪</span>
+          <p>Menguji koneksi kabel menggunakan LAN Tester</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">↔️</span>
+          <p>Memahami perbedaan fungsi kabel straight &amp; crossover</p>
+        </div>
+      </div>
+
+      <!-- bahan -->
+      <div class="tools-row">
+        <h3>Bahan &amp; Alat</h3>
+        <div class="tools-list">
+          <div class="tool-chip"><span class="tool-num">1</span> Kabel UTP</div>
+          <div class="tool-chip"><span class="tool-num">2</span> Tang Krimping</div>
+          <div class="tool-chip"><span class="tool-num">3</span> 2× Konektor RJ-45</div>
+        </div>
+      </div>
+
+      <!-- T568B pinout -->
+      <div class="pinout-wrap">
+        <div class="pinout-card">
+          <h3>Urutan Warna T568B (Straight)</h3>
+          <p>Kupas pelindung kabel tanpa mengenai kabel berwarna di dalamnya, lalu urutkan
+          kedelapan kabel sesuai standar berikut — sama di kedua ujung untuk tipe straight.</p>
+          <div class="pinout-grid" id="pinoutGrid">
+            <!-- generated by JS / static fallback below -->
+          </div>
+          <noscript>
+            <ol class="pinout-list">
+              <li>Putih Oranye</li><li>Oranye</li><li>Putih Hijau</li><li>Biru</li>
+              <li>Putih Biru</li><li>Hijau</li><li>Putih Coklat</li><li>Coklat</li>
+            </ol>
+          </noscript>
+          <p class="caption">Standar ini umum dipakai untuk menghubungkan perangkat berbeda
+          jenis, misalnya komputer ke switch.</p>
+        </div>
+      </div>
+
+      <!-- photo process steps -->
+      <div class="process-grid">
+        <figure class="process-photo">
+          <img src="assets/crimp1.jpg" alt="Sandi mengupas pelindung kabel UTP dengan tang crimping">
+          <figcaption>
+            <span class="step-tag">Langkah 1</span>
+            <h4>Kupas Kabel UTP</h4>
+            <p>Kupas pelindung kabel — jangan sampai mengenai kabel berwarna di dalamnya.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="process-photo">
+          <img src="assets/crimp2.jpg" alt="Sandi memegang dan mengurutkan delapan kabel berwarna sesuai T568B">
+          <figcaption>
+            <span class="step-tag">Langkah 2</span>
+            <h4>Urutkan Warna</h4>
+            <p>Susun kabel mengikuti urutan T568B: Putih Oranye, Oranye, Putih Hijau, Biru,
+            Putih Biru, Hijau, Putih Coklat, Coklat.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="process-photo">
+          <img src="assets/crimp3.jpg" alt="Sandi merapikan ujung kabel sebelum dipasang ke konektor RJ-45">
+          <figcaption>
+            <span class="step-tag">Langkah 3</span>
+            <h4>Merapikan Kabel</h4>
+            <p>Ratakan ujung kabel dengan gunting agar pas masuk RJ-45 dan tidak salah urutan
+            saat dikrimping.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="process-photo">
+          <img src="assets/crimp4.jpg" alt="Sandi menjepit konektor RJ-45 dengan tang crimping">
+          <figcaption>
+            <span class="step-tag">Langkah 4</span>
+            <h4>Krimping Kabel</h4>
+            <p>Tekan tang crimping sekuat tenaga agar pin RJ-45 menggigit kabel dengan kuat
+            dan konektor tidak mudah lepas.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="process-photo">
+          <img src="assets/crimp5.jpg" alt="Sandi memegang kedua ujung kabel UTP dengan konektor RJ-45 terpasang">
+          <figcaption>
+            <span class="step-tag">Langkah 5</span>
+            <h4>Ulangi di Ujung Lainnya</h4>
+            <p>Setelah satu sisi selesai, lakukan proses yang sama secara identik di ujung
+            kabel lainnya.</p>
+          </figcaption>
+        </figure>
+
+        <figure class="process-photo highlight">
+          <img src="assets/lantester.jpg" alt="Sandi tersenyum sambil memegang LAN tester dengan dua kabel UTP terhubung dan menunjukkan jempol">
+          <figcaption>
+            <span class="step-tag">Hasil Akhir</span>
+            <h4>Tes di LAN Tester</h4>
+            <p>Kedua ujung dihubungkan ke LAN tester — nomor 1 sampai 8 harus menyala berurutan.
+            Jika ada yang tidak menyala, ulangi proses crimping.</p>
+          </figcaption>
+        </figure>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 04 SHARE FOLDER -->
+  <section class="section section-alt" id="share">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="num">04</span>
+        <div>
+          <p class="eyebrow">Praktik Ketiga</p>
+          <h2>Share Folder Antar Perangkat</h2>
+          <p class="section-desc">
+            Kemampuan berbagi sumber daya antar perangkat adalah salah satu fungsi utama
+            jaringan komputer. Fitur <em>file sharing</em> di Windows memungkinkan beberapa
+            komputer dalam satu jaringan mengakses data yang sama tanpa flashdisk. Praktik ini
+            melatih konfigurasi jaringan peer-to-peer sederhana, lengkap dengan pengaturan
+            firewall, services, dan izin akses.
+          </p>
+        </div>
+      </div>
+
+      <div class="goal-grid">
+        <div class="goal-card">
+          <span class="goal-icon">🛡️</span>
+          <p>Mengonfigurasi Windows Firewall agar tidak memblokir akses</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🔧</span>
+          <p>Mengaktifkan layanan Function Discovery untuk file sharing</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🔑</span>
+          <p>Mengatur izin akses: Full Control, Change, Read</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🌐</span>
+          <p>Mengakses shared folder dari klien lewat alamat IP</p>
+        </div>
+      </div>
+
+      <!-- prerequisite steps -->
+      <div class="prereq-grid">
+        <div class="prereq-card">
+          <div class="prereq-num">1</div>
+          <h4>Matikan Firewall</h4>
+          <p>Agar klien tidak diblokir saat mengakses folder yang dibagikan. Buka lewat
+          <span class="path">Control Panel → System and Security → Windows Defender
+          Firewall</span>, lalu pilih <em>Turn off Windows Defender Firewall</em> pada jaringan
+          private.</p>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-num">2</div>
+          <h4>Aktifkan Services</h4>
+          <p>Tekan <span class="mono-inline">Windows + R</span>, ketik
+          <span class="mono-inline">services.msc</span>, lalu Enter. Pastikan
+          <strong>Function Discovery Provider Host</strong> dan
+          <strong>Function Discovery Resource Publication</strong> berstatus <em>Running</em> —
+          tanpa keduanya, share folder tidak akan berjalan.</p>
+        </div>
+        <div class="prereq-card">
+          <div class="prereq-num">3</div>
+          <h4>Periksa Koneksi Jaringan</h4>
+          <p>Pastikan perangkat sudah terhubung ke access point / switch / hub dan mendapat
+          alamat IPv4 dari DHCP sebelum melanjutkan ke proses sharing.</p>
+          <div class="code-block mono small">
+<pre>IPv4 Address. . . . . . . . . . . : <span class="hl">192.168.18.7</span>
+Subnet Mask . . . . . . . . . . . : 255.255.255.0
+Default Gateway . . . . . . . . . : 192.168.18.1
+DHCP Server . . . . . . . . . . . : 192.168.18.1</pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- main flow -->
+      <div class="flow-wrap">
+        <h3>Alur Konfigurasi Share Folder</h3>
+        <div class="flow-grid">
+          <div class="flow-card">
+            <div class="flow-step">01</div>
+            <h4>Pilih Folder</h4>
+            <p>Klik kanan folder yang ingin dibagikan (misalnya <em>Desktop</em>), lalu pilih
+            <strong>Properties</strong>.</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-card">
+            <div class="flow-step">02</div>
+            <h4>Tab Sharing</h4>
+            <p>Buka tab <strong>Sharing</strong>, lalu klik <strong>Advanced Sharing</strong>
+            untuk mengatur opsi berbagi lanjutan.</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-card">
+            <div class="flow-step">03</div>
+            <h4>Centang &amp; Permissions</h4>
+            <p>Centang <em>Share this folder</em>, lalu klik <strong>Permissions</strong> untuk
+            mengatur hak akses pengguna.</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-card">
+            <div class="flow-step">04</div>
+            <h4>Akses dari Klien</h4>
+            <p>Di perangkat lain, ketik alamat IP di address bar File Explorer, mis.
+            <span class="mono-inline">\\192.168.18.7</span>.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- permission table -->
+      <div class="permission-wrap">
+        <div class="permission-card">
+          <h3>Atur Permission untuk "Everyone"</h3>
+          <p>Setiap level akses memberi kemampuan berbeda kepada pengguna lain di jaringan:</p>
+          <table class="permission-table">
+            <thead>
+              <tr><th>Izin Akses</th><th>Allow</th><th>Deny</th><th>Keterangan</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Full Control</strong></td>
+                <td><span class="check">✔</span></td>
+                <td></td>
+                <td>Akses penuh — bisa membaca, mengubah, menghapus, dan mengatur ulang izin.</td>
+              </tr>
+              <tr>
+                <td><strong>Change</strong></td>
+                <td><span class="check">✔</span></td>
+                <td></td>
+                <td>Bisa mengubah isi folder: menambah, mengedit, atau menghapus file.</td>
+              </tr>
+              <tr>
+                <td><strong>Read</strong></td>
+                <td><span class="check">✔</span></td>
+                <td></td>
+                <td>Hanya bisa membaca / melihat isi folder, tanpa mengubah apa pun.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="security-card">
+          <h3>Masalah Keamanan</h3>
+          <p>Saat folder diakses dari perangkat klien, Windows dapat meminta kredensial
+          jaringan jika diperlukan.</p>
+          <div class="mock-window small">
+            <div class="mock-titlebar"><span></span><span></span><span></span></div>
+            <div class="mock-body mono">
+              <p class="mock-app-title">Enter network credentials</p>
+              <p class="muted">Enter your credentials to connect to: 192.168.18.7</p>
+              <div class="mock-field"><span class="muted">Nama pengguna</span><span>sanndyrmdhn</span></div>
+              <div class="mock-field"><span class="muted">Sandi</span><span>•••</span></div>
+              <p class="error-text">Nama pengguna atau kata sandi salah.</p>
+            </div>
+          </div>
+          <p class="caption">Masukkan username &amp; password akun di komputer host bila
+          diminta untuk menyelesaikan koneksi.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 05 MUG -->
+  <section class="section" id="mug">
+    <div class="section-inner">
+      <div class="section-head">
+        <span class="num">05</span>
+        <div>
+          <p class="eyebrow">Praktik Keempat</p>
+          <h2>Desain &amp; Cetak MUG (Sublimasi)</h2>
+          <p class="section-desc">
+            Percetakan digital berbasis sublimasi banyak dipakai di industri kreatif dan
+            merchandise. Praktik ini memperkenalkan alur kerja dari desain digital di
+            <strong>Canva</strong> atau <strong>CorelDraw</strong>, pencetakan ke kertas
+            transfer khusus, hingga proses pemanasan dengan <em>heat press machine</em> —
+            keterampilan yang relevan untuk bidang multimedia dan wirausaha.
+          </p>
+        </div>
+      </div>
+
+      <div class="goal-grid">
+        <div class="goal-card">
+          <span class="goal-icon">🖌️</span>
+          <p>Membuat desain digital sesuai dimensi &amp; format mug cetak</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">📄</span>
+          <p>Menyiapkan kertas transfer sublimasi sebelum heat press</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">🔥</span>
+          <p>Mengoperasikan heat press machine untuk mencetak desain</p>
+        </div>
+        <div class="goal-card">
+          <span class="goal-icon">📦</span>
+          <p>Memahami alur produksi merchandise dari desain ke produk jadi</p>
+        </div>
+      </div>
+
+      <div class="mug-process">
+
+        <div class="mug-step">
+          <div class="mug-text">
+            <span class="step-tag">Langkah 1</span>
+            <h3>Siapkan Desain Sebelum Cetak</h3>
+            <p>Desain dibuat di aplikasi desain seperti Canva atau CorelDraw, kemudian dicetak
+            ke kertas transfer sublimasi sesuai ukuran permukaan mug.</p>
+          </div>
+          <figure class="mug-photo">
+            <img src="assets/mug1.jpg" alt="Kertas transfer hasil cetak desain bertema burger dengan pola bintang">
+          </figure>
+        </div>
+
+        <div class="mug-step reverse">
+          <div class="mug-text">
+            <span class="step-tag">Langkah 2</span>
+            <h3>Tempelkan Desain di MUG</h3>
+            <p>Kertas transfer dibungkus mengelilingi mug polos, dipastikan posisinya pas dan
+            tidak bergeser sebelum masuk ke mesin press.</p>
+          </div>
+          <figure class="mug-photo">
+            <img src="assets/mug2.jpg" alt="Tangan menempelkan kertas transfer desain pada mug putih polos">
+          </figure>
+        </div>
+
+        <div class="mug-step">
+          <div class="mug-text">
+            <span class="step-tag">Langkah 3</span>
+            <h3>Masukkan MUG ke Mesin Press</h3>
+            <p>Mug yang sudah dibungkus kertas transfer dimasukkan ke heat press machine untuk
+            menempelkan desain secara permanen melalui proses sublimasi.</p>
+          </div>
+          <figure class="mug-photo">
+            <img src="assets/mug4.png" alt="Mug dipasang pada mesin heat press dengan beberapa slot mug">
+          </figure>
+        </div>
+
+        <div class="mug-step reverse">
+          <div class="mug-text">
+            <span class="step-tag">Langkah 4</span>
+            <h3>Lepaskan Kertas Desain</h3>
+            <p>Setelah proses pemanasan selesai, mug diangkat dan didinginkan di suhu ruang,
+            lalu kertas transfer yang masih menempel dilepas perlahan.</p>
+          </div>
+          <figure class="mug-photo">
+            <img src="assets/mug5.png" alt="Mug diangkat dari mesin heat press setelah proses pencetakan">
+          </figure>
+        </div>
+
+        <div class="mug-step">
+          <div class="mug-text">
+            <span class="step-tag">Hasil Akhir</span>
+            <h3>MUG Siap Digunakan</h3>
+            <p>Setelah benar-benar dingin, desain menempel sempurna pada permukaan mug dan
+            mug siap digunakan atau dipasarkan sebagai merchandise.</p>
+          </div>
+          <figure class="mug-photo">
+            <img src="assets/mug3.jpg" alt="Mug putih jadi dengan desain karakter burger dan motif bintang">
+          </figure>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TEMBANG DOLANAN -->
+  <section class="section song-section">
+    <div class="section-inner song-inner">
+      <p class="eyebrow">Selingan</p>
+      <h2>Tembang Dolanan — Burger Ceria</h2>
+      <div class="song-card">
+        <p>Burger enak rasane gurih</p>
+        <p>Roti empuk isi daging sapi</p>
+        <p>Tambah keju dadi luwih gurih</p>
+        <p>Sayur seger gawe sehat ati</p>
+        <p>Dipangan bareng kanca luwih gurih</p>
+        <p>Guyub rukun kabeh seneng ati</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PENUTUP -->
+  <section class="section closing">
+    <div class="section-inner">
+      <div class="closing-grid">
+        <div class="closing-text">
+          <h2>Penutup</h2>
+          <p>
+            Demikianlah laporan proyek kolaborasi semester genap 2025/2026 yang telah saya susun
+            dengan sepenuh hati. Melalui empat kegiatan praktikum ini — Instalasi Windows,
+            Crimping UTP, Share Folder, dan pembuatan MUG — saya banyak belajar hal baru yang
+            tidak hanya bersifat teknis, tetapi juga membentuk karakter saya sebagai pelajar.
+          </p>
+          <p>
+            Instalasi Windows mengajarkan pentingnya memahami sistem operasi dari dasarnya.
+            Crimping UTP melatih ketelitian dan kesabaran — satu kesalahan kecil pada susunan
+            warna kabel bisa membuat seluruh koneksi gagal. Share folder memperkenalkan saya
+            pada konsep jaringan komputer yang nyata dan aplikatif. Sedangkan pembuatan MUG
+            membuktikan bahwa dunia TKJ tidak hanya soal kode dan kabel, tetapi juga kreativitas.
+          </p>
+          <p>
+            Saya menyadari hasil karya ini masih jauh dari sempurna dan masih banyak hal yang
+            perlu dipelajari. Namun saya bangga dengan setiap langkah yang telah saya tempuh
+            secara mandiri dalam proyek ini.
+          </p>
+          <p>
+            Terima kasih kepada para guru pembimbing dan seluruh pihak yang telah mendukung
+            proses belajar saya. Semoga laporan ini bermanfaat dan menjadi motivasi bagi
+            teman-teman lain untuk terus semangat belajar di bidang Teknologi Komputer dan
+            Jaringan.
+          </p>
+        </div>
+        <aside class="closing-card">
+          <div class="closing-photo">
+            <img src="assets/profile.png" alt="Foto Sandi Tri Ramadhan">
+          </div>
+          <h4>Sandi Tri Ramadhan</h4>
+          <p class="closing-role">X TKJ AKA · NIPD 145251426042</p>
+          <ul class="recap-list">
+            <li><span class="recap-num">02</span> Instalasi Windows 10 LTSC</li>
+            <li><span class="recap-num">03</span> Crimping UTP T568B Straight</li>
+            <li><span class="recap-num">04</span> Share Folder &amp; Hak Akses</li>
+            <li><span class="recap-num">05</span> Desain &amp; Cetak MUG</li>
+          </ul>
+        </aside>
+        <a class="btn btn-download" href="https://www.ventoy.net/en/download.html" target="_blank" rel="noopener">
+              <span class="btn-download-icon">⬇</span>
+              <span>
+                <strong>Magazine Original</strong>
+                <small>Jika kurang jelas bisa melihat dokumen aslinya</small>
+              </span>
+            </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <p>Laporan Praktikum TKJ · Proyek Kolaborasi Semester Genap 2025/2026</p>
+    <a href="#top" class="back-top">Kembali ke atas ↑</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
