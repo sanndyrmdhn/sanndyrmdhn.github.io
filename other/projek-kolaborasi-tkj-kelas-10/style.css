@@ -1079,6 +1079,17 @@ p:last-child{ margin-bottom: 0; }
   padding: 2px 7px;
   border-radius: 4px;
 }
+.btn-download-compact{
+  margin-top: 20px;
+  padding: 12px 14px;
+}
+.btn-download-compact .btn-download-icon{
+  width: 32px; height: 32px;
+  font-size: 1rem;
+}
+.btn-download-compact strong{ font-size: 0.88rem; }
+.btn-download-compact small{ font-size: 0.66rem; }
+
 
 /* ============================================
    FOOTER
@@ -1154,4 +1165,52 @@ p:last-child{ margin-bottom: 0; }
   .topbar-inner{ padding: 14px 20px; }
   .status-card{ position: static; margin-top: -40px; transform: none; width: 100%; max-width: 100%; }
   .photo-frame{ transform: none; width: 100%; max-width: 280px; margin: 0 auto; }
+
+  /* Permission table -> stacked cards on mobile */
+  .permission-table thead{ display: none; }
+  .permission-table, .permission-table tbody, .permission-table tr, .permission-table td{
+    display: block;
+    width: 100%;
+  }
+  .permission-table tr{
+    border: 1px solid var(--line);
+    border-radius: var(--radius-sm);
+    margin-bottom: 14px;
+    padding: 4px 14px;
+    background: var(--paper);
+  }
+  .permission-table td{
+    border-bottom: 1px solid var(--line);
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    text-align: right;
+  }
+  .permission-table td:last-child{ border-bottom: none; }
+  .permission-table td::before{
+    content: attr(data-label);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    opacity: 0.5;
+    text-align: left;
+    flex-shrink: 0;
+    padding-top: 1px;
+  }
+  .permission-table td[data-label="Izin Akses"]{
+    font-size: 1rem;
+    padding-top: 14px;
+    padding-bottom: 12px;
+    justify-content: flex-start;
+  }
+  .permission-table td[data-label="Izin Akses"]::before{ content: none; }
+  .permission-table td[data-label="Keterangan"]{ text-align: left; }
+  .permission-table td:empty::after{ content: '—'; opacity: 0.3; }
+
+  .code-block pre{ font-size: 0.72rem; }
+  .progress-mock{ font-size: 0.78rem; }
+  .compare-grid{ grid-template-columns: 1fr; }
 }
