@@ -1222,9 +1222,9 @@ p:last-child{ margin-bottom: 0; }
   /* Section head numbers shouldn't overflow */
   .section-head .num{ -webkit-text-stroke: 1.5px var(--ink); }
 
-  /* Pinout grid: 8 cols too tight on phones */
-  .pinout-grid{ grid-template-columns: repeat(4,1fr); gap: 6px; }
-  .pin{ padding: 8px 4px; font-size: 0.62rem; }
+  /* Pinout grid: keep 2 cols on phones, text needs room */
+  .pinout-grid{ grid-template-columns: repeat(2,1fr); gap: 8px; }
+  .pin{ padding: 10px 8px; font-size: 0.7rem; }
   .pinout-card{ padding: 20px; }
   .pinout-list{ grid-template-columns: repeat(2,1fr); }
 
