@@ -1,185 +1,381 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Other Projects | Sandy</title>
-  <style>
-    :root{
-      --bg:#0a0a0a;
-      --bg-glass:rgba(22,27,34,0.45);
-      --accent:#1e90ff;          /* merah ruby tetap */
-      --accent-glow:#1e90ff;
-      --text:#e6e6e6;
-      --muted:#8b949e;
-      --font:"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    }
-    *{margin:0;padding:0;box-sizing:border-box;font-family:var(--font)}
-    html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);overflow-x:hidden}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Other Projects — Sandi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    /* HERO parallax dengan overlay ruby */
-    header{
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      position:relative;
-      background:url('bg.jpg') center/cover fixed;
-    }
-    header::before{
-      content:'';
-      position:absolute;inset:0;
-      background:rgba(0,0,0,.65);
-      backdrop-filter:blur(6px);
-    }
-    header>*{position:relative;z-index:2}
-    .avatar{
-      width:160px;height:160px;
-      border-radius:50%;
-      border:4px solid var(--accent);
-      box-shadow:0 0 20px var(--accent-glow);
-      object-fit:cover;
-      transition:.4s;
-    }
-    .avatar:hover{transform:scale(1.1);box-shadow:0 0 30px var(--accent-glow)}
-    .hero-text h1{font-size:2.8rem;letter-spacing:2px;margin-top:18px}
-    .hero-text p{color:var(--muted);font-size:1.2rem;margin:8px 0 25px}
-    .btn{
-      padding:12px 28px;
-      background:transparent;
-      border:2px solid var(--accent);
-      color:var(--accent);
-      border-radius:50px;
-      font-weight:600;
-      text-decoration:none;
-      transition:.3s;
-      position:relative;
-      overflow:hidden;
-      z-index:1;
-    }
-    .btn::before{
-      content:'';
-      position:absolute;
-      top:50%;left:50%;
-      width:0;height:0;
-      background:var(--accent);
-      border-radius:50%;
-      transition:.5s;
-      transform:translate(-50%,-50%);
-      z-index:-1;
-    }
-    .btn:hover{color:#000}
-    .btn:hover::before{width:300px;height:300px}
+  :root {
+    --bg: #0d0f12;
+    --surface: #13161a;
+    --surface2: #1a1e24;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8eaed;
+    --muted: #8b9099;
+    --accent: #3bde9c;
+    --accent-dim: rgba(59,222,156,0.12);
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
 
-    /* NAVBAR */
-    nav{
-      position:fixed;top:0;left:0;right:0;
-      background:var(--bg-glass);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.08);
-      padding:12px 0;
-      z-index:100;
-      transition:transform .4s;
-    }
-    nav ul{display:flex;justify-content:center;gap:30px;list-style:none}
-    nav a{color:var(--text);text-decoration:none;font-weight:600;position:relative}
-    nav a::after{
-      content:'';
-      position:absolute;left:0;bottom:-4px;
-      width:0;height:2px;
-      background:var(--accent);
-      transition:.3s;
-    }
-    nav a:hover::after{width:100%}
+  html { scroll-behavior: smooth; }
 
-    /* SECTIONS */
-    section{max-width:1000px;margin:100px auto;padding:0 20px}
-    h2{font-size:2rem;margin-bottom:35px;text-align:center;color:var(--accent)}
-    .projects{
-      display:grid;
-      gap:30px;
-      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    }
-    .card{
-      background:var(--bg-glass);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:16px;
-      padding:25px;
-      transition:.4s;
-      position:relative;
-      overflow:hidden;
-    }
-    .card::before{
-      content:'';
-      position:absolute;
-      top:0;left:0;right:0;height:3px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-glow));
-      transition:.4s;
-      transform:scaleX(0);
-      transform-origin:left;
-    }
-    .card:hover::before{transform:scaleX(1)}
-    .card:hover{transform:translateY(-8px);box-shadow:0 0 25px rgba(255,56,96,.25)}
-    .card h3{font-size:1.4rem;margin-bottom:8px}
-    .card a{color:var(--accent);text-decoration:none;font-weight:600}
-    .socials{
-      display:flex;justify-content:center;gap:20px;flex-wrap:wrap;
-    }
-    .socials a{
-      padding:10px 24px;
-      background:var(--bg-glass);
-      border:1px solid var(--accent);
-      border-radius:50px;
-      color:var(--accent);
-      text-decoration:none;
-      transition:.3s;
-    }
-    .socials a:hover{background:var(--accent);color:#000;box-shadow:0 0 15px var(--accent-glow)}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
 
-    /* RESPONSIVE */
-    @media(max-width:600px){
-      .hero-text h1{font-size:2.2rem}
-      nav ul{gap:20px}
-    }
-  </style>
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+    background: rgba(13,15,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-back {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--text); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 140px 2.5rem 4rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .page-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .page-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .page-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+  }
+
+  /* MAIN */
+  main {
+    padding: 0 2.5rem 6rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  /* PROJECT CARDS */
+  .projects-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--border2);
+    background: var(--surface2);
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .project-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-green {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .badge-gray {
+    background: var(--surface2);
+    color: var(--muted);
+  }
+
+  .project-arrow {
+    color: var(--muted);
+    font-size: 18px;
+    transition: all 0.2s;
+  }
+
+  .project-card:hover .project-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+    border-left: 2px solid var(--border2);
+    padding-left: 12px;
+  }
+
+  .project-meta {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-neutral {
+    background: var(--surface2);
+    color: var(--muted);
+  }
+
+  /* SOCIAL */
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: var(--mono);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0d0f12;
+    font-weight: 700;
+  }
+
+  .btn-primary:hover {
+    background: #5ef5b4;
+  }
+
+  .btn-outline {
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 2.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-made span { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    .page-header, main { padding-left: 1.25rem; padding-right: 1.25rem; }
+    footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
 </head>
-
 <body>
-  <!-- HERO -->
-  <header>
-    <div class="hero-text">
-      <h1>Other projects</h1>
-      <p>from Sandy</p>
-      <a class="btn" href="#projects">Explore Works</a>
-    </div>
-  </header>
 
-  <!-- NAV -->
-  <nav>
-    <ul>
-      <li><a href="https://t.me/sanndyrmdhn">Telegram</a></li>
-      <li><a href="https://github.com/sanndyrmdhn">GitHub</a></li>
-    </ul>
-  </nav>
+<nav>
+  <a class="nav-logo" href="https://github.com/sanndyrmdhn">sanndyrmdhn</a>
+  <a class="nav-back" href="index.html">← back to main</a>
+</nav>
 
-  <!-- PROJECTS -->
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Projek kolaborasi kelas 10 TKJ</h3>
-        <p>"Projek yang berisikan Menginstal Windows, Crimping UTP, Sharing Folder dan Pencetakkan MUG"</p>
-        <a href="https://sanndyrmdhn.github.io/other/projek-kolaborasi-tkj-kelas-10/index.html" target="_blank">View post →</a>
+<div class="page-header">
+  <div class="page-tag">from Sandi</div>
+  <h1>Other Projects</h1>
+  <p class="page-sub">A collection of smaller collabs, school projects, and experiments outside the main work.</p>
+</div>
+
+<main>
+  <hr class="divider">
+  <div class="projects-grid">
+
+    <a class="project-card" href="projek-kolaborasi-tkj-kelas-10/index.html">
+      <div class="project-top">
+        <span class="project-name">Projek Kolaborasi Kelas 10 TKJ</span>
+        <span class="project-arrow">→</span>
       </div>
-       <div class="card">
-        <h3>Lorem Ipsum</h3>
-        <p>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</p>
-        <a href="#blank" target="_blank">View post →</a>
-      </div>    
+      <p class="project-meta">
+        A school collaboration project covering hardware and networking fundamentals — 
+        OS installation, cable crimping, network folder sharing, and MUG printing.
+      </p>
+      <div class="project-tags">
+        <span class="tag">networking</span>
+        <span class="tag">hardware</span>
+        <span class="tag-neutral tag">TKJ class 10</span>
+        <span class="tag-neutral tag">collaboration</span>
+      </div>
+    </a>
+
+    <div class="project-card disabled">
+      <div class="project-top">
+        <span class="project-name">Coming soon...</span>
+        <span class="project-badge badge-gray">WIP</span>
+      </div>
+      <p class="project-meta">
+        More projects on the way. Check the GitHub for latest work.
+      </p>
+      <div class="project-tags">
+        <span class="tag-neutral tag">coming soon</span>
+      </div>
     </div>
-  </section>
+
+  </div>
+
+  <div class="social-row">
+    <a href="https://github.com/sanndyrmdhn" class="btn btn-primary" target="_blank">GitHub ↗</a>
+    <a href="https://t.me/sanndyrmdhn" class="btn btn-outline" target="_blank">Telegram ↗</a>
+    <a href="https://www.instagram.com/sanndyrmdhn_/" class="btn btn-outline" target="_blank">Instagram ↗</a>
+  </div>
+</main>
+
+<footer>
+  <span>sanndyrmdhn · other projects</span>
+  <span class="footer-made">built from <span>scratch</span> · 2026</span>
+</footer>
+
 </body>
 </html>

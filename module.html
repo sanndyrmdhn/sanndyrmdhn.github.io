@@ -1,134 +1,432 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Sann' Project</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
-        }
-        .container {
-            padding: 20px;
-        }
-        .footer {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            margin-top: 16px;
-        }
-        .footer a {
-            color: #1e90ff;
-            font-weight: bold;
-            text-decoration: none;
-            font-size: 14px;
-            margin-right: 8px;
-        }
-        .footer i {
-            color: #1e90ff;
-            font-size: 16px;
-        }
-        .header {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 20px;
-        }
-        .button {
-            font-size: 14px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 10px;
-            border: 1px solid #00aaff;
-            border-radius: 8px;
-            color: #00aaff;
-            text-decoration: none;
-            margin-bottom: 20px;
-        }
-        .module {
-            background-color: #1e1e1e;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-        .name {
-            font-size: 18px;
-            font-weight: bold;
-        }
-        .version {
-            font-size: 14px;
-            color: #aaaaaa;
-            margin-bottom: 10px;
-        }
-        .description {
-            font-size: 14px;
-            color: #cccccc;
-            margin-bottom: 16px;
-        }
-        .thin-line {
-            border: none;
-            height: 1px;
-            background-color: #2e2e2e
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Main Projects — Sandi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d0f12;
+    --surface: #13161a;
+    --surface2: #1a1e24;
+    --border: rgba(255,255,255,0.07);
+    --border2: rgba(255,255,255,0.13);
+    --text: #e8eaed;
+    --muted: #8b9099;
+    --accent: #3bde9c;
+    --accent-dim: rgba(59,222,156,0.12);
+    --mono: 'JetBrains Mono', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2.5rem;
+    height: 60px;
+    background: rgba(13,15,18,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 14px;
+    color: var(--accent);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+  }
+
+  .nav-back {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: none;
+    font-family: var(--mono);
+    letter-spacing: 0.03em;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+
+  .nav-back:hover { color: var(--text); }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding: 140px 2.5rem 4rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  .page-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .page-tag::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+  }
+
+  .page-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 480px;
+  }
+
+  /* MAIN */
+  main {
+    padding: 0 2.5rem 6rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+
+  hr.divider {
+    border: none;
+    border-top: 0.5px solid var(--border);
+    margin-bottom: 3rem;
+  }
+
+  /* PROJECT CARDS */
+  .projects-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 0.5px solid var(--border);
+    border-radius: 10px;
+    padding: 1.75rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .project-card:hover {
+    border-color: var(--border2);
+    background: var(--surface2);
+  }
+
+  .project-card:hover::before { opacity: 1; }
+
+  .project-card.disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .project-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.5rem;
+  }
+
+  .project-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text);
+  }
+
+  .project-badge {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-green {
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .badge-gray {
+    background: var(--surface2);
+    color: var(--muted);
+  }
+
+  .project-arrow {
+    color: var(--muted);
+    font-size: 18px;
+    transition: all 0.2s;
+  }
+
+  .project-card:hover .project-arrow {
+    color: var(--accent);
+    transform: translate(2px, -2px);
+  }
+
+  .project-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+    border-left: 2px solid var(--border2);
+    padding-left: 12px;
+  }
+
+  .project-meta {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+  }
+
+  .project-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 3px 10px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    border-radius: 4px;
+    letter-spacing: 0.03em;
+  }
+
+  .tag-neutral {
+    background: var(--surface2);
+    color: var(--muted);
+  }
+
+  /* SOCIAL */
+  .social-row {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--border);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-family: var(--mono);
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0d0f12;
+    font-weight: 700;
+  }
+
+  .btn-primary:hover {
+    background: #5ef5b4;
+  }
+
+  .btn-outline {
+    border: 0.5px solid var(--border2);
+    color: var(--muted);
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 0.5px solid var(--border);
+    padding: 2rem 2.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  footer span {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--muted);
+  }
+
+  .footer-made span { color: var(--accent); }
+
+  @media (max-width: 640px) {
+    nav { padding: 0 1.25rem; }
+    .page-header, main { padding-left: 1.25rem; padding-right: 1.25rem; }
+    footer { padding: 1.5rem 1.25rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="header"><a href="https://t.me/sanndyrmdhn" style="color: white; text-decoration: none;">Sandy | Open Source </a></div>
-        <a href="https://t.me/sannopensource" class="button"><i class="fas fa-dropbox"></i>Sann' Open Source</a>
-        <div class="module">
-            <div class="name">Vulkan Optimizer</div>
-            <div class="version">v1.1 by sanndyrmdhn</div>
-            <div class="description">Changed rendering to skiavk. This render is very light for gaming use. Maybe it could waste battery and get hotter.</div>
-            <hr class="thin-line">
-            <div class="footer">
-                <a href="https://github.com/sanndyrmdhn/VulkanOptimizer/releases/">Download</a>
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
-        <div class="module">
-            <div class="name">RenderHL Android 11+</div>
-            <div class="version">v1.4</div>
-            <div class="description">Universal render tweak to improve gaming performance for the better</div>
-            <hr class="thin-line">
-            <div class="footer">
-                <a href="https://github.com/sanndyrmdhn/RenderHL/releases/">Download</a>
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
-        <div class="module">
-            <div class="name">Graphics Enhancement Driver & FPSGo</div>
-            <div class="version">v77</div>
-            <div class="description">Graphics Enhancement Driver And FPSGo Optimization For MediaTek Only</div>
-            <hr class="thin-line">
-            <div class="footer">
-                <a href="https://github.com/sanndyrmdhn/GED_FPSGo_MTK/releases">Download</a>
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
-        <div class="module">
-            <div class="name">RAM & UFS Boost</div>
-            <div class="version">v99</div>
-            <div class="description">Optimize RAM and UFS to improve I/O performance</div>
-            <hr class="thin-line">
-            <div class="footer">
-                <a href="https://github.com/sanndyrmdhn/RAM_UFS/releases">Download</a>
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
-        <div class="module">
-            <div class="name">GPU CPU Tweak MediaTek</div>
-            <div class="version">v82</div>
-            <div class="description">Tweak For Dimensity 700 (MT6833) Dimensity 720 (MT6853) Dimensity 800 (MT6873) Dimensity 800U (MT6877)</div>
-            <hr class="thin-line">
-            <div class="footer">
-                <a href="https://github.com/sanndyrmdhn/Tweak_MediaTek_G57/releases/">Download</a>
-                <i class="fas fa-download"></i>
-            </div>
-        </div>
+
+<nav>
+  <a class="nav-logo" href="https://github.com/sanndyrmdhn">sanndyrmdhn</a>
+  <a class="nav-back" href="index.html">← back to main</a>
+</nav>
+
+<div class="page-header">
+  <div class="page-tag">from Sandi</div>
+  <h1>Main Projects</h1>
+  <p class="page-sub">A collection of main projects.</p>
+</div>
+
+<main>
+  <hr class="divider">
+  <div class="projects-grid">
+
+    <a class="project-card" href="https://github.com/sanndyrmdhn/RenderHL" target="_blank">
+      <div class="project-top">
+        <span class="project-name">RenderHL Android 12+</span>
+        <span class="project-arrow">↗</span>
+      </div>
+      <p class="project-desc">
+        Universal render tweak to improve gaming performance for the better
+      </p>
+      <div class="project-tags">
+        <span class="tag">android</span>
+        <span class="tag">performance</span>
+        <span class="tag">universal</span>
+        <span class="tag">module</span>
+        <span class="tag-neutral tag">android 12+</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/sanndyrmdhn/RAM_UFS" target="_blank">
+      <div class="project-top">
+        <span class="project-name">RAM & UFS Boost</span>
+        <span class="project-arrow">↗</span>
+      </div>
+      <p class="project-desc">
+        Optimize RAM and UFS to improve I/O performance
+      </p>
+      <div class="project-tags">
+        <span class="tag">android</span>
+        <span class="tag">performance</span>
+        <span class="tag">universal</span>
+        <span class="tag">module</span>
+        <span class="tag-neutral tag">root only</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/sanndyrmdhn/GED_FPSGo_MTK" target="_blank">
+      <div class="project-top">
+        <span class="project-name">Graphics Enhancement Driver & FPSGo</span>
+        <span class="project-arrow">↗</span>
+      </div>
+      <p class="project-desc">
+        Graphics Enhancement Driver Optimization & FPSGo For MediaTek Only
+      </p>
+      <div class="project-tags">
+        <span class="tag">android</span>
+        <span class="tag">performance</span>
+        <span class="tag">module</span>
+        <span class="tag-neutral tag">root only</span>
+        <span class="tag-neutral tag">mediatek only</span>
+      </div>
+    </a>
+
+    <a class="project-card" href="https://github.com/sanndyrmdhn/Tweak_MediaTek_G57" target="_blank">
+      <div class="project-top">
+        <span class="project-name">GPU CPU Tweak MediaTek</span>
+        <span class="project-arrow">↗</span>
+      </div>
+      <p class="project-desc">
+        Tweak For Dimensity 700 (MT6833) Dimensity 720 (MT6853) Dimensity 800 (MT6873) Dimensity 800U (MT6877)
+      </p>
+      <div class="project-tags">
+        <span class="tag">android</span>
+        <span class="tag">performance</span>
+        <span class="tag">module</span>
+        <span class="tag-neutral tag">root only</span>
+        <span class="tag-neutral tag">mediatek only</span>
+      </div>
+    </a>
+
+    <div class="project-card disabled">
+      <div class="project-top">
+        <span class="project-name">Coming soon...</span>
+        <span class="project-badge badge-gray">WIP</span>
+      </div>
+      <p class="project-meta">
+        More projects on the way. Check the GitHub for latest work.
+      </p>
+      <div class="project-tags">
+        <span class="tag-neutral tag">coming soon</span>
+      </div>
     </div>
+
+  </div>
+
+  <div class="social-row">
+    <a href="https://github.com/sanndyrmdhn" class="btn btn-primary" target="_blank">GitHub ↗</a>
+    <a href="https://t.me/sanndyrmdhn" class="btn btn-outline" target="_blank">Telegram ↗</a>
+    <a href="https://www.instagram.com/sanndyrmdhn_/" class="btn btn-outline" target="_blank">Instagram ↗</a>
+  </div>
+</main>
+
+<footer>
+  <span>sanndyrmdhn · main projects</span>
+  <span class="footer-made">built from <span>scratch</span> · 2026</span>
+</footer>
+
 </body>
 </html>
